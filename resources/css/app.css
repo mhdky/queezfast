@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    @apply text-white-primary font-poppins
+}
+
+.containerListMobile, .containersearch, .listDropdownAdmin {
+    animation: seedIn 0.3s ease-in;
+}
+
+@keyframes seedIn {
+    0% {
+        @apply opacity-0
+    }
+
+    100% {
+        @apply opacity-100
+    }
+}
+
+.arrowCategoryDesktopRotate {
+    @apply rotate-180 mt-1
+}
+
+.listCategoryDropdown {
+    animation: seedIn 0.3s ease-in;
+}
+.listCategoryDropdownShow {
+    @apply flex
+}
+
+.hasilPencarianDeasktop::-webkit-scrollbar-thumb {
+    @apply bg-zinc-700
+}
+
+.hasilPencarianDeasktop::-webkit-scrollbar {
+    @apply w-2 rounded-md
+}
+
+.blue-css {
+    @apply font-bold text-blue-600
+}
+.blue-tailwind {
+    @apply font-bold text-sky-400
+}
+.yellow-js {
+    @apply font-bold text-yellow-500
+}
+.blue-php {
+    @apply font-bold text-violet-900
+}
+.red-laravel {
+    @apply font-bold text-red-600
+}
+
+p.text-sm.text-gray-700.leading-5 {
+    @apply hidden
+}
+
+.relative.inline-flex.items-center.px-4.py-2.-ml-px.text-sm.font-medium.text-gray-500 {
+    @apply bg-zinc-800 text-white-primary border border-gray-primary
+}
+
+.relative.inline-flex.items-center.px-4.py-2.-ml-px.text-sm.font-medium.text-gray-700.bg-white {
+    @apply bg-body text-white-primary border border-gray-primary
+}
+
+.relative.inline-flex.items-center.px-2.py-2 {
+    @apply bg-body border border-gray-primary
+}
+
+.relative.inline-flex.items-center.px-4.py-2.text-sm.font-medium.text-gray-500.bg-white {
+    @apply bg-body text-zinc-500 text-[12px] px-[14px] focus:ring-0 cursor-default
+} 
+
+.relative.inline-flex.items-center.px-4.py-2.text-sm.font-medium.text-gray-700.bg-white, .relative.inline-flex.items-center.px-4.py-2.text-sm.font-medium.text-gray-700 {
+    @apply bg-body text-white-primary text-[12px] px-[14px] focus:ring-0
+}
+
+.arrowAdminDeropdownRotate {
+    @apply rotate-180
+}
+
+.listDropdownAdminShow {
+    @apply block
+}
