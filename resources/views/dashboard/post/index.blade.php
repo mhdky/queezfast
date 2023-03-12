@@ -12,6 +12,7 @@
 
     @foreach ($posts as $post)
         <div class="w-[800px] mb-8 pb-8 border-b border-[#7B7B7B]" data-post-id="{{ $post->id }}">
+            <p class="w-10 h-10 border border-zinc-500 rounded-full mb-10 flex justify-center items-center text-zinc-500">{{ $loop->iteration }}</p>
             {{-- author --}}
             <h1 class="text-[#7B7B7B] text-[13px] font-bold mb-1">{{ Str::title($post->author) }}</h1>
             {{-- date --}}

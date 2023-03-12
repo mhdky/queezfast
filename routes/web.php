@@ -46,6 +46,8 @@ Route::get('/post', [PostController::class, 'index'])->middleware('auth')->name(
 Route::post('/post', [PostController::class, 'store'])->name('posts.store');
 // edit post
 Route::get('/akfsdqoiwj12/{post:id}', [PostController::class, 'edit']);
+// updade post
+Route::put('/post/{post:id}', [PostController::class, 'update']);
 // hapus post
 Route::delete('/post/{post:id}', [PostController::class, 'destroy']);
 

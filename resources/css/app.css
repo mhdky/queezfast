@@ -34,11 +34,11 @@
     @apply flex
 }
 
-.hasilPencarianDeasktop::-webkit-scrollbar-thumb, .formAddPost::-webkit-scrollbar-thumb {
+.hasilPencarianDeasktop::-webkit-scrollbar-thumb, .formAddPost::-webkit-scrollbar-thumb, .formEditPost::-webkit-scrollbar-thumb {
     @apply bg-zinc-700
 }
 
-.hasilPencarianDeasktop::-webkit-scrollbar, .formAddPost::-webkit-scrollbar {
+.hasilPencarianDeasktop::-webkit-scrollbar, .formAddPost::-webkit-scrollbar, .formEditPost::-webkit-scrollbar {
     @apply w-2 rounded-md
 }
 
