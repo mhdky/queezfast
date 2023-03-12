@@ -11,7 +11,7 @@
     </div>
 
     @foreach ($posts as $post)
-        <div class="w-[800px] mb-8 pb-8 border-b border-[#7B7B7B]">
+        <div class="w-[800px] mb-8 pb-8 border-b border-[#7B7B7B]" data-post-id="{{ $post->id }}">
             {{-- author --}}
             <h1 class="text-[#7B7B7B] text-[13px] font-bold mb-1">{{ Str::title($post->author) }}</h1>
             {{-- date --}}
@@ -25,7 +25,7 @@
 
             {{-- delete and edit --}}
             <div class="w-full flex justify-end">
-                <div class="bg-blue-900 w-[100px] h-[35px] mr-5 text-sm flex justify-center items-center rounded-[5px]">
+                <div class="edit-btn bg-blue-900 w-[100px] h-[35px] mr-5 text-sm flex justify-center items-center rounded-[5px] cursor-pointer" data-id="{{ $post->id }}">
                     Edit
                 </div>
 
@@ -38,12 +38,21 @@
 
     @include('partials.alert-add')
 
+    @include('partials.alert-edit')
+
     @include('partials.alert-delete')
+
+    @include('partials.alert-ok')
 @endsection
 
 @section('add-js')
     <script src="{{ asset('js/add-js.js') }}"></script>
 @endsection
+
+@section('edit-js')
+    <script src="{{ asset('js/edit-js.js') }}"></script>
+@endsection
+
 @section('delete-js')
     <script src="{{ asset('js/delete-js.js') }}"></script>
 @endsection

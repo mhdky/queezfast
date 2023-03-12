@@ -43,7 +43,11 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 // post
 Route::get('/post', [PostController::class, 'index'])->middleware('auth')->name('post');
 // add post
-Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::post('/post', [PostController::class, 'store'])->name('posts.store');
+// edit post
+Route::get('/akfsdqoiwj12/{post:id}', [PostController::class, 'edit']);
+// hapus post
+Route::delete('/post/{post:id}', [PostController::class, 'destroy']);
 
 // sosmed
 Route::get('/social-media', [SocialmediaController::class, 'index'])->middleware('auth')->name('social-media');

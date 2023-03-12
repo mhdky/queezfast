@@ -109,6 +109,7 @@
 
 
     @yield('add-js')
+    @yield('edit-js')
     @yield('delete-js')
     <script src="{{ asset('js/script-all-dashboard.js') }}"></script>
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    // tampil post
     public function index() {
         return view('dashboard.post.index', [
             'title' => 'queezfast - Post',
@@ -16,17 +17,33 @@ class PostController extends Controller
         ]);
     }
 
+    // add post
     public function store(Request $request) {
-        $post = new Post();
-        $post->category_id = $request->input('category_id');
-        $post->github = $request->input('github');
-        $post->author = $request->input('author');
-        $post->date = $request->input('date');
-        $post->title = $request->input('title');
-        $post->slug = $request->input('slug');
-        $post->excerpt = $request->input('excerpt');
-        $post->save();
+        $validateData = $request->validate([
+            'category_id' => 'required|min:1|max:100',
+            'github' => 'required|url|min:1|max:300',
+            'author' => 'required|min:1|max:50',
+            'date' => 'required',
+            'title' => 'required|min:1|max:255',
+            'slug' => 'required|url|min:1|max:300',
+            'excerpt' => 'required|min:5|max:5000000',
+        ]);
 
-        return response()->json(['success' => true, 'message' => 'Postingan berhasil ditambahkan']);
+        Post::create($validateData);
+        return redirect('/post')->with('ok', 'Postingan berhasil ditambah');
+    }
+
+    // edit post
+    public function edit (Post $post) {
+        return response()->json($post);
+    }
+
+    // hapust post
+    public function destroy(Post $post) {
+        $post->delete();
+
+        return response()->json([
+            'message' => 'Post berhasil dihapus'
+        ]);
     }
 }

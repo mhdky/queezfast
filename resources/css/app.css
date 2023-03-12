@@ -89,3 +89,17 @@ p.text-sm.text-gray-700.leading-5 {
 .listDropdownAdminShow {
     @apply block
 }
+
+.alert-ok, .alert-ok-with {
+    animation: bottom-to-top .3s;
+}
+
+@keyframes bottom-to-top {
+    0% {
+        transform: translateY(180%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}

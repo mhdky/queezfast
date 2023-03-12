@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
-        Post::factory(200)->create();
+        Post::factory(20)->create();
 
         Category::create([
             'name' => 'Css',
