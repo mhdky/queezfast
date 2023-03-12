@@ -7,7 +7,7 @@
 @section('main')
     <div class="flex justify-between items-center mb-16">
         {{-- container name --}}
-        <div class="bg-blue-900 py-[9px] px-[23px] rounded-[5px] text-sm">Add Post</div>
+        <div class="addButton bg-blue-900 py-[9px] px-[23px] rounded-[5px] text-sm cursor-pointer">Add Post</div>
     </div>
 
     @foreach ($posts as $post)
@@ -29,10 +29,21 @@
                     Edit
                 </div>
 
-                <div class="bg-red-600 w-[100px] h-[35px] text-sm flex justify-center items-center rounded-[5px] cursor-pointer">
-                    Delete
+                <div class="btnDeletePos bg-red-600 w-[100px] h-[35px] text-sm flex justify-center items-center rounded-[5px] cursor-pointer">
+                    Hapus
                 </div>
             </div>
         </div>
     @endforeach
+
+    @include('partials.alert-add')
+
+    @include('partials.alert-delete')
+@endsection
+
+@section('add-js')
+    <script src="{{ asset('js/add-js.js') }}"></script>
+@endsection
+@section('delete-js')
+    <script src="{{ asset('js/delete-js.js') }}"></script>
 @endsection

@@ -32,19 +32,19 @@
                     </a>
                 </li>
                 <li class="{{ (Route::is('social-media*') ? 'bg-[#102D80]' : '') }} w-full h-[47px] border-b border-[#102D80] hover:bg-[#102D80]">
-                    <a href="{{ route('dashboard') }}" class="h-full flex items-center">
+                    <a href="{{ route('social-media') }}" class="h-full flex items-center">
                         <img src="{{ asset('img/following.png') }}" alt="Social Media" class="w-[25px] ml-[26px] mr-[20px]">
                         <p class="text-sm">Social Media</p>
                     </a>
                 </li>
                 <li class="{{ (Route::is('blog*') ? 'bg-[#102D80]' : '') }} w-full h-[47px] border-b border-[#102D80] hover:bg-[#102D80]">
-                    <a href="{{ route('dashboard') }}" class="h-full flex items-center">
+                    <a href="{{ route('blog') }}" class="h-full flex items-center">
                         <img src="{{ asset('img/blog.png') }}" alt="Blog" class="w-[25px] ml-[26px] mr-[20px]">
                         <p class="text-sm">Blog</p>
                     </a>
                 </li>
                 <li class="{{ (Route::is('sponsor*') ? 'bg-[#102D80]' : '') }} w-full h-[47px] border-b border-[#102D80] hover:bg-[#102D80]">
-                    <a href="{{ route('dashboard') }}" class="h-full flex items-center">
+                    <a href="{{ route('sponsor') }}" class="h-full flex items-center">
                         <img src="{{ asset('img/heart.png') }}" alt="Sponsor" class="w-[25px] ml-[26px] mr-[20px]">
                         <p class="text-sm">Sponsor</p>
                     </a>
@@ -108,6 +108,8 @@
     </div>
 
 
+    @yield('add-js')
+    @yield('delete-js')
     <script src="{{ asset('js/script-all-dashboard.js') }}"></script>
     <script src="https://kit.fontawesome.com/209072fbdb.js" crossorigin="anonymous"></script>
 </body>

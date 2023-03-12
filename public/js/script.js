@@ -72,38 +72,6 @@ function checkInputDesktop() {
 }
 
 
-// live search ajax desktop
-document.addEventListener("DOMContentLoaded", function(event) {
-    event.preventDefault();
-    var searchInput = document.getElementById('search');
-    var searchResults = document.getElementById('search-results');
-
-    searchInput.addEventListener('keyup', function(event) {
-        var query = searchInput.value;
-        if (query.length >= 1) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/search?search=' + query, true);;
-            xhr.onload = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var results = JSON.parse(xhr.responseText);
-                    var output = '';
-                    if (results.length == 0) {
-                        output = '<p class="w-full h-max py-2 px-4 flex justify-center items-center text-sm text-center">Postingan tidak ditemukan</p>';
-                    } else {
-                        for (var i in results) {
-                            var postSlug = encodeURIComponent(results[i].slug);
-                            output += '<a href="/posts/' + postSlug + '" class="w-full h-max py-2 px-4 text-sm inline-block hover:bg-zinc-700">' + results[i].title + '</a>';
-                        }
-                    }
-                    searchResults.innerHTML = output;
-                }
-            };
-            xhr.send();
-        } else {
-            searchResults.innerHTML = '';
-        }
-    });
-});
 
 // matikan aksi default button search desktop
 const buttonSearchDesktop = document.querySelector('.buttonSearchDesktop');
@@ -111,40 +79,102 @@ buttonSearchDesktop.addEventListener('click', function(event) {
     event.preventDefault();
 });
 
-// live search mobile
-document.addEventListener("DOMContentLoaded", function(event) {
-    var searchInputMobile = document.getElementById('search-mobile');
-    var searchResultsMobile = document.getElementById('search-results-mobile');
-
-    searchInputMobile.addEventListener('keyup', function(event) {
-        var query = searchInputMobile.value;
-        if (query.length >= 1) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/search?search=' + query, true);;
-            xhr.onload = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var results = JSON.parse(xhr.responseText);
-                    var output = '';
-                    if (results.length == 0) {
-                        output = '<p class="w-full h-full py-2 px-4 text-sm flex justify-center items-center">Postingan tidak ditemukan</p>';
-                    } else {
-                        for (var i in results) {
-                            var postSlug = encodeURIComponent(results[i].slug);
-                            output += '<a href="/posts/' + postSlug + '" class="w-full py-2 px-3 inline-block cursor-default hover:bg-zinc-800">' + results[i].title + '</a>';
-                        }
-                    }
-                    searchResultsMobile.innerHTML = output;
-                }
-            };
-            xhr.send();
-        } else {
-            searchResultsMobile.innerHTML = '';
-        }
-    });
-});
-
 // matikan aksi defult button search mobile
 const buttonSearchMobile = document.querySelector('.buttonSearchMobile');
 buttonSearchMobile.addEventListener('click', function(event) {
     event.preventDefault();
+});
+
+// new live search desktop
+const searchInput = document.querySelector('.searchInput');
+const searchResult = document.querySelector('#searchResult');
+const loading = document.querySelector('.loading');
+
+searchInput.addEventListener('keyup', (e) => {
+    const searchText = e.target.value.trim();
+
+    if (searchText.length > 0) {
+        // Tampilkan loading
+        loading.style.display = 'block';
+
+        fetch(`/sdjfqiaaweq112/${searchText}`)
+            .then(response => response.json())
+            .then(data => {
+                // Sembunyikan loading
+                loading.style.display = 'none';
+
+                searchResult.innerHTML = '';
+
+                if (data.length === 0) {
+                    // Jika data tidak ditemukan, tampilkan pesan
+                    const notFound = document.createElement('div');
+                    notFound.classList.add('noPost', 'w-full', 'h-max', 'py-2', 'px-4', 'flex', 'justify-center', 'items-center', 'text-sm', 'text-center');
+                    notFound.textContent = 'Postingan tidak ditemukan';
+                    searchResult.appendChild(notFound);
+                } else {
+                    data.forEach(post => {
+                        // jika data ditemukan
+                        const link = document.createElement('a');
+                        link.href = `${post.slug}`;
+                        link.classList.add('w-full', 'h-max', 'py-2', 'px-4', 'text-sm', 'inline-block', 'hover:bg-zinc-700');
+                        link.textContent = post.title;
+
+                        searchResult.appendChild(link);
+                    });
+                }
+            })
+            .catch(error => console.log(error));
+    } else {
+        loading.style.display = 'none';
+        searchResult.innerHTML = '';
+    }
+});
+
+
+
+
+
+// new live search mobile
+const searchInputMobile = document.querySelector('.searchInputMobile');
+const searchResultMobile = document.querySelector('.searchResultMobile');
+const loadingMobile = document.querySelector('.loadingMobile');
+
+searchInputMobile.addEventListener('keyup', (e) => {
+    const searchText = e.target.value.trim();
+
+    if (searchText.length > 0) {
+        // Tampilkan loadingMobile
+        loadingMobile.style.display = 'block';
+
+        fetch(`/sdjfqiaaweq112/${searchText}`)
+            .then(response => response.json())
+            .then(data => {
+                // Sembunyikan loadingMobile
+                loadingMobile.style.display = 'none';
+
+                searchResultMobile.innerHTML = '';
+
+                if (data.length === 0) {
+                    // Jika data tidak ditemukan, tampilkan pesan
+                    const notFound = document.createElement('div');
+                    notFound.classList.add('noPost', 'w-full', 'h-max', 'py-2', 'px-4', 'flex', 'justify-center', 'items-center', 'text-sm', 'text-center');
+                    notFound.textContent = 'Postingan tidak ditemukan';
+                    searchResultMobile.appendChild(notFound);
+                } else {
+                    data.forEach(post => {
+                        // jika data ditemukan
+                        const link = document.createElement('a');
+                        link.href = `${post.slug}`;
+                        link.classList.add('w-full', 'py-2', 'px-3', 'inline-block', 'cursor-default',  'hover:bg-zinc-800');
+                        link.textContent = post.title;
+
+                        searchResultMobile.appendChild(link);
+                    });
+                }
+            })
+            .catch(error => console.log(error));
+    } else {
+        loadingMobile.style.display = 'none';
+        searchResult.innerHTML = '';
+    }
 });

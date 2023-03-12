@@ -17,8 +17,7 @@ class CategoryController extends Controller
             'categories' => Category::all(),
             'socials' => Social::all(),
             'blogs' => Blog::all(),
-            'sponsors' => Sponsor::all(),
-            'searchResults' => []
+            'sponsors' => Sponsor::all()
         ]);
     }
 }

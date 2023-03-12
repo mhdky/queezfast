@@ -10,7 +10,7 @@
         <div class="bg-blue-900 py-[9px] px-[23px] rounded-[5px] text-sm">Post</div>
 
         {{-- see more --}}
-        <a href="#" class="text-sm hover:underline">See More</a>
+        <a href="{{ route('post') }}" class="text-sm hover:underline">See More</a>
     </div>
 
     @foreach ($posts as $post)

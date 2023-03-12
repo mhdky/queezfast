@@ -19,14 +19,13 @@ class HomeController extends Controller
         'categories' => Category::all(),
         'socials' => Social::all(),
         'blogs' => Blog::all(),
-        'sponsors' => Sponsor::all(),
-        'searchResults' => []
+        'sponsors' => Sponsor::all()
         ]);
     }
 
-    public function search(Request $request) {
-        $searchTerm = $request->input('search');
-        $posts = Post::where('title', 'like', '%'.$searchTerm.'%')->get();
+    public function search($searchText) {
+        $posts = Post::where('title', 'like', '%'.$searchText.'%')->get();
+
         return response()->json($posts);
     }
 }

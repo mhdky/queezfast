@@ -25,10 +25,10 @@
     </div>
 
     {{-- search desktop --}}
-    <form action="{{ route('search') }}" method="get" autocomplete="off" id="search-form" class="w-80 h-9 hidden md-768:flex">
-        <input type="text" name="search" placeholder="Live search" id="search" onkeyup="checkInputDesktop()" class="searchDesktop inputSerchDesktop bg-transparent w-full flex-[2] text-sm border border-gray-primary px-3 rounded-l-[5px] focus:outline-none placeholder:text-gray-secondary placeholder:text-[12px]">
+    <div class="w-80 h-9 hidden md-768:flex">
+        <input type="text" placeholder="Live search" id="search" autocomplete="off" onkeyup="checkInputDesktop()" class="searchInput searchDesktop inputSerchDesktop bg-transparent w-full flex-[2] text-sm border border-gray-primary px-3 rounded-l-[5px] focus:outline-none placeholder:text-gray-secondary placeholder:text-[12px]">
         <button disabled="disabled" class="buttonSearchDesktop border flex justify-center items-center border-gray-primary w-10 h-full -ml-[1px] rounded-r-[5px]"><i class="fa-solid fa-magnifying-glass text-gray-secondary text-[13px]"></i></button>
-    </form>
+    </div>
 
     {{-- inside right --}}
     <div class="flex items-center md-768:hidden">
@@ -52,21 +52,16 @@
         <div class="closeSearch absolute z-10 top-0 right-0 bottom-0 left-0"></div>
 
         <div class="w-full absolute z-20">
-            <form action="{{ route('search') }}" method="get" autocomplete="off" class="w-full h-[60px] flex px-3 pt-3">
-                <input type="text" name="search" placeholder="Live search" onkeyup="checkInputSearchMobile()" id="search-mobile" class="inputSearch w-full px-2 flex-[2] bg-[#181818] border border-gray-primary rounded-l-[5px] focus:outline-none focus:border-gray-primary placeholder:text-gray-secondary">
+            <div class="w-full h-[60px] flex px-3 pt-3">
+                <input type="text" name="search" autocomplete="off" placeholder="Live search" onkeyup="checkInputSearchMobile()" id="search-mobile" class="searchInputMobile inputSearch w-full px-2 flex-[2] bg-[#181818] border border-gray-primary rounded-l-[5px] focus:outline-none focus:border-gray-primary placeholder:text-gray-secondary">
                 <button disabled="disabled" class="buttonSearchMobile bg-[#181818] flex justify-center items-center border border-gray-primary w-[55px] h-full -ml-[1px] rounded-r-[5px]"><i class="fas fa-search text-gray-secondary text-[15px]"></i></button>
-            </form>
+            </div>
 
             {{-- hasil pencarian mobile --}}
             <div class="containerHasilPencarianMobile hidden w-full h-72 px-3">
                 <div class="bg-[#181818] w-full max-h-72 flex flex-col rounded-[5px] border border-gray-primary mt-2 overflow-auto" id="search-results-mobile">
-                    @if (count($searchResults) < 1)
-                        <p class="w-full h-3 py-2 px-4 text-sm">Postingan tidak ditemukan</p>
-                    @else
-                        @foreach ($searchResults as $post)
-                            <a href="{{ route('post.show', $post->slug) }}" class="w-full py-2 px-3 inline-block cursor-default hover:bg-zinc-800">{{ $post->title }}</a>
-                        @endforeach
-                    @endif
+                    <div class="searchResultMobile"></div>
+                    <p class="loadingMobile w-full text-center hidden justify-center py-2 text-sm">Memuat..</p>
                 </div>
             </div>
         </div>
@@ -103,13 +98,8 @@
 
         {{-- hasil pencarian desctop --}}
         <div id="search-results" class="hasilPencarianDeasktop bg-zinc-800 w-80 max-h-96 my-2 flex-col border border-gray-primary rounded-[5px] absolute z-20 top-[70px] right-5 overflow-auto lg-1000:top-[75px] lg-1190:right-14 lg-1295:right-24" id="search-results">
-            @if (count($searchResults) < 1)
-                <p class="w-full h-max py-2 px-4 flex justify-center items-center text-sm text-center">Postingan tidak ditemukan</p>
-            @else
-                @foreach ($searchResults as $post)
-                    <a href="{{ route('post.show', $post->slug) }}" class="w-full h-max py-2 px-4 text-sm inline-block hover:bg-zinc-7">{{ $post->title }}</a>
-                @endforeach
-            @endif        
+            <div id="searchResult"></div>
+            <p class="loading w-full text-center hidden justify-center py-2 text-sm">Memuat..</p>
         </div>
     </div>
 </div>
