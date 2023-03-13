@@ -16,7 +16,7 @@
                 <a href="{{ $blog->url }}" class="text-sm hover:underline">{{ Str::title($blog->name) }}</a>
             
                 <div class="flex">
-                    <i class="editBlog fas fa-edit text-sm mr-3" data-id="{{ $blog->id }}"></i>
+                    <i class="editBlog fas fa-edit text-sm mr-3 cursor-pointer" data-id="{{ $blog->id }}"></i>
                     <i class="btnDeletePos fas fa-trash-alt text-sm cursor-pointer"></i>
                 </div>
             </div>

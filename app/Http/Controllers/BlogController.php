@@ -26,4 +26,9 @@ class BlogController extends Controller
 
         return redirect('/blog')->with('ok', 'Blog berhasil ditambahkan');
     }
+
+    // edit blog
+    public function edit (Blog $blog) {
+        return response()->json($blog);
+    }
 }
