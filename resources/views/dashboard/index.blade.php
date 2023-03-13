@@ -1,7 +1,7 @@
 @extends('layouts.admin-navigation')
 
 @section('route-name')
-    Dashboard
+    <a href="/" class="hover:text-blue-600">Home</a>/Dashboard
 @endsection
 
 @section('main')

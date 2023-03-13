@@ -1,7 +1,7 @@
 @extends('layouts.admin-navigation')
 
 @section('route-name')
-    Blog
+    <a href="/" class="hover:text-blue-600">Home</a>/Blog
 @endsection
 
 @section('main')

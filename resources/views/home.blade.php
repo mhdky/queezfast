@@ -9,7 +9,7 @@
         {{-- jumbotron --}}
         <div class="w-full h-screen bg-gradient-to-t from-body to-[rgba(73,73,73,0.31)] flex flex-col justify-center px-3 md-768:px-5 lg-1190:px-14 lg-1295:px-24">
             <h1 class="queezfast w-max text-3xl font-secularone font-medium mb-10 sm-730:text-4xl">. queezfast</h1>
-            <p class="text-[12px] font-secularone font-medium sm-550:text-base md-816:w-[780px]">queezfast adalah platform yang dibangun untuk dapat memudahkan pengembang dalam mencari kembali pembelajaran-pembelajaran mengenai Web Programming yang telah dipelajari.</p>
+            <p class="text-[12px] font-secularone font-medium sm-550:text-base md-816:w-[780px]">queezfast adalah platform yang dibangun untuk dapat memudahkan pengembang (saya) dalam mencari kembali pembelajaran-pembelajaran mengenai Web Programming yang telah dipelajari.</p>
             <div class="flex mt-3 sm-550:mt-5">
                 {{-- tailwindcss --}}
                 <div class="bg-[#1C1C1C] w-7 h-7 mr-3 flex justify-center items-center rounded-[5px] border border-[#363636] sm-550:w-10 sm-550:h-10">

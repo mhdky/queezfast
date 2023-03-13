@@ -34,6 +34,28 @@ function deletePost(id) {
 }
 
 // delete social media
+function deleteCategory(id) {
+    const token = document.querySelector('input[name="_token"]').value;
+    fetch('/category/' + id, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            document.querySelector(`[data-category-id="${id}"]`).remove();
+        } else {
+            alert('Failed to delete post');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        alert('Failed to delete post');
+    });
+}
+
+// delete social media
 function deleteSocialMedia(id) {
     const token = document.querySelector('input[name="_token"]').value;
     fetch('/social-media/' + id, {

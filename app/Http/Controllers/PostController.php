@@ -10,9 +10,15 @@ class PostController extends Controller
 {
     // tampil post
     public function index() {
+        $posts = Post::latest();
+
+        if(request('searchPost')) {
+            $posts->where('title', 'like', '%' .request('searchPost') . '%');
+        }
+
         return view('dashboard.post.index', [
             'title' => 'queezfast - Post',
-            'posts' => Post::latest()->get(),
+            'posts' => $posts->get(),
             'categories' => Category::all(),
         ]);
     }

@@ -114,10 +114,19 @@ searchInput.addEventListener('keyup', (e) => {
                 } else {
                     data.forEach(post => {
                         // jika data ditemukan
-                        const link = document.createElement('a');
+                        const link = document.createElement("a");
                         link.href = `${post.slug}`;
-                        link.classList.add('w-full', 'h-max', 'py-2', 'px-4', 'text-sm', 'inline-block', 'hover:bg-zinc-700');
-                        link.textContent = post.title;
+                        link.classList.add('search-style-two');
+
+                        const div = document.createElement("div");
+                        div.classList.add('search-style-three');
+                        div.textContent = post.title;
+                        link.appendChild(div);
+
+                        const p = document.createElement("p");
+                        p.classList.add('search-style');
+                        p.textContent = post.excerpt
+                        link.appendChild(p);
 
                         searchResult.appendChild(link);
                     });

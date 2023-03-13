@@ -21,6 +21,24 @@ editBtns.forEach(btn => {
 });
 
 
+// // edit category
+const editCategory = document.querySelectorAll('.editCategory');
+editCategory.forEach(btnEditCategory => {
+    btnEditCategory.addEventListener('click', () => {
+        document.body.style.overflow = 'hidden';
+        document.querySelector('.alertEdit').style.display = 'flex';
+        const id = btnEditCategory.dataset.id;
+        fetch(`/h2ysjdwkjkw/${id}`)
+            .then(response => response.json())
+            .then(category => {
+                document.querySelector('.formEditCategory').action = `/category/${category.id}`;
+                document.getElementById('nameEdit').value = category.name;
+                document.getElementById('colorEdit').value = category.color;
+                document.getElementById('slugEdit').value = category.slug;
+            });
+    });
+});
+
 // edit social media
 const editSocialMedia = document.querySelectorAll('.editSocialMedia');
 editSocialMedia.forEach(btnEditSocialMedia => {

@@ -31,6 +31,12 @@
                         <p class="text-sm">Post</p>
                     </a>
                 </li>
+                <li class="{{ (Route::is('category*') ? 'bg-[#102D80]' : '') }} w-full h-[47px] border-b border-[#102D80] hover:bg-[#102D80]">
+                    <a href="{{ route('category') }}" class="h-full flex items-center">
+                        <img src="{{ asset('img/category.png') }}" alt="Post" class="w-[22px] ml-7 mr-[22px]">
+                        <p class="text-sm">Category</p>
+                    </a>
+                </li>
                 <li class="{{ (Route::is('social-media*') ? 'bg-[#102D80]' : '') }} w-full h-[47px] border-b border-[#102D80] hover:bg-[#102D80]">
                     <a href="{{ route('social-media') }}" class="h-full flex items-center">
                         <img src="{{ asset('img/following.png') }}" alt="Social Media" class="w-[25px] ml-[26px] mr-[20px]">
@@ -61,8 +67,8 @@
                 {{-- search and name acount --}}
                 <div class="flex relative">
                     {{-- search dashboard --}}
-                    <form action="#" method="get" class="bg-gray-primary w-[204px] h-[39px] mr-5 pr-3 flex items-center rounded-[5px]">
-                        <input type="text" name="" placeholder="Search Post" onkeyup="checkInputSearchDashboard()" class="inputSearchDashboard w-full px-4 pt-0.5 flex-[2] bg-transparent h-[23px] text-[13px] placeholder:text-[#7B7B7B] focus:outline-none">
+                    <form action="/post" method="get" class="bg-gray-primary w-[204px] h-[39px] mr-5 pr-3 flex items-center rounded-[5px]">
+                        <input type="text" name="searchPost" value="{{ (request('searchPost') ? : '') }}" placeholder="Search Post" onkeyup="checkInputSearchDashboard()" class="inputSearchDashboard w-full px-4 pt-0.5 flex-[2] bg-transparent h-[23px] text-[13px] placeholder:text-[#7B7B7B] focus:outline-none">
                         <button type="submit" disabled class="btnSearchDashboard bg-[#232325] w-[23px] h-[23px] rounded-[3px] text-[10px]"><i class="fas fa-search"></i></button>
                     </form>
 
@@ -81,13 +87,7 @@
                     {{-- list dropdown admin --}}
                     <div class="listDropdownAdmin bg-gray-primary w-[204px] py-2 hidden absolute top-12 right-0 shadow-lg shadow-zinc-800 rounded-[5px]">
                         <ul>
-                            <li class="w-full h-12 hover:bg-zinc-700 border-b border-zinc-700">
-                                <a href="/profile" class="flex items-center w-full h-full">
-                                    <i class="fas fa-user ml-6 mr-5"></i>
-                                    <p class="text-sm">Profile</p>
-                                </a>
-                            </li>
-                            <li class="w-full h-12 hover:bg-zinc-700 mt-1">
+                            <li class="w-full h-12 hover:bg-zinc-700">
                                 <form action="{{ route('logout') }}" method="post" class="w-full h-full">
                                     @csrf
                                     <button type="submit" class="flex items-center w-full h-full">

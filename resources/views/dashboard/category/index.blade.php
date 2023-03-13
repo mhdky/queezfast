@@ -1,22 +1,25 @@
 @extends('layouts.admin-navigation')
 
 @section('route-name')
-    <a href="/" class="hover:text-blue-600">Home</a>/Social Media
+    <a href="/" class="hover:text-blue-600">Home</a>/Category
 @endsection
 
 @section('main')
     <div class="flex justify-between items-center mb-16">
         {{-- container name --}}
-        <div class="addButton bg-blue-900 py-[9px] px-[23px] rounded-[5px] text-sm cursor-pointer">Add Social Media</div>
+        <div class="addButton bg-blue-900 py-[9px] px-[23px] rounded-[5px] text-sm cursor-pointer">Add Category</div>
     </div>
 
     <div class="w-[800px] flex flex-col">
-        @foreach ($socials as $social)
-            <div class="flex justify-between items-center mb-5 pb-3 border-b border-[#7B7B7B]" data-socailMedia-id="{{ $social->id }}">
-                <a href="{{ $social->url }}" class="text-sm hover:underline">{{ Str::title($social->name) }}</a>
+        @foreach ($categories as $category)
+            <div class="flex justify-between items-center mb-5 pb-3 border-b border-[#7B7B7B]" data-category-id="{{ $category->id }}">
+                <div class="flex flex-col">
+                    <a href="category/{{ $category->slug }}" class="text-sm hover:underline">{{ Str::title($category->name) }}</a>
+                    <p class="{{ $category->color }} text-[12px] mt-1">{{ $category->color }}</p>
+                </div>
             
                 <div class="flex">
-                    <i class="editSocialMedia fas fa-edit text-sm mr-3 cursor-pointer" data-id="{{ $social->id }}"></i>
+                    <i class="editCategory fas fa-edit text-sm mr-3 cursor-pointer" data-id="{{ $category->id }}"></i>
                     <i class="btnDeletePos fas fa-trash-alt text-sm cursor-pointer"></i>
                 </div>
             </div>
@@ -26,7 +29,7 @@
     @include('partials.alert-add')
 
     @include('partials.alert-edit')
-    
+
     @include('partials.alert-delete')
 
     @include('partials.alert-ok')

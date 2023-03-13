@@ -20,7 +20,7 @@
 
             {{-- github --}}
             <div class="flex flex-col my-5">
-                <label for="githubEdit" class="text-sm mb-2 ml-1">Github Link</label>
+                <label for="githubEdit" class="text-sm mb-2 ml-1">Github Repository</label>
                 <input type="url" required name="github" value="Memuat.." id="githubEdit" minlength="5" maxlength="500" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
                 {{-- error --}}
                 @error('github')
@@ -84,6 +84,64 @@
             </div>
         </form>
     </div>
+@elseif(Route::is('category'))
+    {{-- edit category --}}
+    <div class="alertEdit bg-[#00000089] w-full h-screen fixed top-0 right-0 bottom-0 left-0 z-20 hidden justify-center items-center">
+        <form action="" method="POST" autocomplete="off" class="formEditCategory bg-gray-primary w-[450px] p-7 rounded-[10px] overflow-auto">
+            @csrf
+            @method('put')
+            {{-- name --}}
+            <div class="flex flex-col my-5">
+                <label for="nameEdit" class="text-sm mb-2 ml-1">Category Name</label>
+                <input type="text" required name="name" value="Memuat.." minlength="3" maxlength="254" id="nameEdit" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
+                {{-- error --}}
+                @error('name')
+                    <p class="text-red-500 text-[12px] mt-1 ml-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- color --}}
+            <div class="flex flex-col my-5">
+                <label for="colorEdit" class="text-sm mb-2 ml-1">Color</label>
+                {{-- <input type="text" required name="color" value="{{ old('color') }}" minlength="3" maxlength="254" id="name" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none"> --}}
+                <select name="color" id="colorEdit" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
+                    <option value="blue-css">Blue Css</option>
+                    <option value="blue-tailwind">Blue tailwind</option>
+                    <option value="blue-react">Blue React</option>
+                    <option value="yellow-js">Yellow Js</option>
+                    <option value="blue-php">Blue Php</option>
+                    <option value="red-laravel">Red Laravel</option> 
+                    <option value="green-nodejs">Green Nodejs</option> 
+                    <option value="blue-expressjs">Blue Expressjs</option> 
+                    <option value="blue-mysql">Blue Mysql</option> 
+                    <option value="blue-postgresql">Blue Postgresql</option> 
+                    <option value="green-mongodb">Green Mongodb</option> 
+                    <option value="green-mongodb">Green Mongodb</option> 
+                    <option value="violet-figma">Violet Figma</option> 
+                    <option value="other-color">Other Color</option> 
+                </select>
+                {{-- error --}}
+                @error('color')
+                    <p class="text-red-500 text-[12px] mt-1 ml-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- slug --}}
+            <div class="flex flex-col my-5">
+                <label for="slugEdit" class="text-sm mb-2 ml-1">Slug</label>
+                <input type="text" required name="slug" value="Memuat.." minlength="3" maxlength="254" id="slugEdit" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
+                {{-- error --}}
+                @error('slug')
+                    <p class="text-red-500 text-[12px] mt-1 ml-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="w-full flex justify-end">
+                <div class="cancelEdit bg-red-600 mr-3 px-4 py-2 rounded-[5px] text-sm cursor-pointer">Batal</div>
+                <button type="submit" class="bg-blue-900 px-4 py-2 rounded-[5px] text-sm">Simpan Perubahan</button>
+            </div>
+        </form>
+    </div>
 @elseif(Route::is('social-media'))
     {{-- edit social media --}}
     <div class="alertEdit bg-[#00000089] w-full h-screen fixed top-0 right-0 bottom-0 left-0 z-20 hidden justify-center items-center">
@@ -92,7 +150,7 @@
             @method('put')
             {{-- name --}}
             <div class="flex flex-col my-5">
-                <label for="nameEdit" class="text-sm mb-2 ml-1">Tittle</label>
+                <label for="nameEdit" class="text-sm mb-2 ml-1">Social Media Name</label>
                 <input type="text" required name="name" value="Memuat.." minlength="3" maxlength="254" id="nameEdit" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
                 {{-- error --}}
                 @error('name')
@@ -124,7 +182,7 @@
             @method('put')
             {{-- name --}}
             <div class="flex flex-col my-5">
-                <label for="nameEdit" class="text-sm mb-2 ml-1">Tittle</label>
+                <label for="nameEdit" class="text-sm mb-2 ml-1">Blog Name</label>
                 <input type="text" required name="name" value="Memuat.." minlength="3" maxlength="254" id="nameEdit" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
                 {{-- error --}}
                 @error('name')
@@ -156,7 +214,7 @@
             @method('put')
             {{-- name --}}
             <div class="flex flex-col my-5">
-                <label for="nameEdit" class="text-sm mb-2 ml-1">Tittle</label>
+                <label for="nameEdit" class="text-sm mb-2 ml-1">Sponsor Name</label>
                 <input type="text" required name="name" value="Memuat.." minlength="3" maxlength="254" id="nameEdit" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
                 {{-- error --}}
                 @error('name')

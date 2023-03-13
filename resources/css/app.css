@@ -57,6 +57,30 @@
 .red-laravel {
     @apply font-bold text-red-600
 }
+.other-color {
+    @apply font-bold text-pink-600
+}
+.violet-figma {
+    @apply font-bold text-[#9B5EF2]
+}
+.blue-expressjs {
+    @apply font-bold text-[#1D0E74]
+}
+.green-nodejs {
+    @apply font-bold text-[#3E843D]
+}
+.blue-react {
+    @apply font-bold text-[#5ED3F3]
+}
+.blue-mysql {
+    @apply font-bold text-[#005D88]
+}
+.blue-postgresql {
+    @apply font-bold text-[#31648C]
+}
+.green-mongodb {
+    @apply font-bold text-[#52A74B]
+}
 
 p.text-sm.text-gray-700.leading-5 {
     @apply hidden
@@ -102,4 +126,14 @@ p.text-sm.text-gray-700.leading-5 {
     100% {
         transform: translateY(0%);
     }
+}
+
+.search-style {
+    @apply text-[12px] text-zinc-400 mt-1 pb-2 border-b border-zinc-600
+}
+.search-style-two {
+    @apply w-full flex flex-col px-4 py-3 hover:bg-zinc-700
+}
+.search-style-three {
+    @apply w-full h-max text-sm
 }

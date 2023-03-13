@@ -1,7 +1,7 @@
 @extends('layouts.admin-navigation')
 
 @section('route-name')
-    Post
+    <a href="/" class="hover:text-blue-600">Home</a>/Post
 @endsection
 
 @section('main')
@@ -36,6 +36,10 @@
             </div>
         </div>
     @endforeach
+
+    @if ($posts->count() < 1)
+        <p class="text-center mb-10">Postingan tidak ditemukan</p>
+    @endif
 
     @include('partials.alert-add')
 

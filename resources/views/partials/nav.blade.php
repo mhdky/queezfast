@@ -59,7 +59,7 @@
 
             {{-- hasil pencarian mobile --}}
             <div class="containerHasilPencarianMobile hidden w-full h-72 px-3">
-                <div class="bg-[#181818] w-full max-h-72 flex flex-col rounded-[5px] border border-gray-primary mt-2 overflow-auto" id="search-results-mobile">
+                <div class="bg-[#181818] w-full h-72 flex flex-col rounded-[5px] border border-gray-primary mt-2 overflow-auto" id="search-results-mobile">
                     <div class="searchResultMobile"></div>
                     <p class="loadingMobile w-full text-center hidden justify-center py-2 text-sm">Memuat..</p>
                 </div>
