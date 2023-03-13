@@ -55,6 +55,23 @@ editBlog.forEach(btnEditBlog => {
     });
 });
 
+// edit sponsor
+const editSponsor = document.querySelectorAll('.editSponsor');
+editSponsor.forEach(btnEditSponsor => {
+    btnEditSponsor.addEventListener('click', () => {
+        document.body.style.overflow = 'hidden';
+        document.querySelector('.alertEdit').style.display = 'flex';
+        const id = btnEditSponsor.dataset.id;
+        fetch(`/qilkaiqefl/${id}`)
+            .then(response => response.json())
+            .then(sponsor => {
+                document.querySelector('.formEditSponsor').action = `/sponsor/${sponsor.id}`;
+                document.getElementById('nameEdit').value = sponsor.name;
+                document.getElementById('urlEdit').value = sponsor.url;
+            });
+    });
+});
+
 
 // batal edit 
 const cancelEdit = document.querySelector('.cancelEdit');

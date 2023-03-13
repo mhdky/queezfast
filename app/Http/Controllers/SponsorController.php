@@ -25,4 +25,9 @@ class SponsorController extends Controller
 
         return redirect('/sponsor')->with('ok', 'Sponsor berhasil ditambahkan');
     }
+
+    // edit sponsor
+    public function edit (Sponsor $sponsor) {
+        return response()->json($sponsor);
+    }
 }

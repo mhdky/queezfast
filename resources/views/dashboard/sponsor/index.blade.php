@@ -16,7 +16,7 @@
             <a href="{{ $sponsor->url }}" class="text-sm hover:underline">{{ Str::title($sponsor->name) }}</a>
         
             <div class="fle">
-                <i class="fas fa-edit text-sm mr-3"></i>
+                <i class="editSponsor fas fa-edit text-sm mr-3 cursor-pointer" data-id="{{ $sponsor->id }}"></i>
                 <i class="btnDeletePos fas fa-trash-alt text-sm cursor-pointer"></i>
             </div>
         </div>
@@ -24,6 +24,8 @@
 </div>
 
 @include('partials.alert-add')
+
+@include('partials.alert-edit')
 
 @include('partials.alert-delete')
 
@@ -33,6 +35,10 @@
 
 @section('add-js')
     <script src="{{ asset('js/add-js.js') }}"></script>
+@endsection
+
+@section('edit-js')
+    <script src="{{ asset('js/edit-js.js') }}"></script>
 @endsection
 
 @section('delete-js')

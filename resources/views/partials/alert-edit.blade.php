@@ -148,4 +148,36 @@
             </div>
         </form>
     </div>
+@elseif(Route::is('sponsor'))
+    {{-- edit sponsor --}}
+    <div class="alertEdit bg-[#00000089] w-full h-screen fixed top-0 right-0 bottom-0 left-0 z-20 hidden justify-center items-center">
+        <form action="" method="POST" autocomplete="off" class="formEditSponsor bg-gray-primary w-[450px] p-7 rounded-[10px] overflow-auto">
+            @csrf
+            @method('put')
+            {{-- name --}}
+            <div class="flex flex-col my-5">
+                <label for="nameEdit" class="text-sm mb-2 ml-1">Tittle</label>
+                <input type="text" required name="name" value="Memuat.." minlength="3" maxlength="254" id="nameEdit" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
+                {{-- error --}}
+                @error('name')
+                    <p class="text-red-500 text-[12px] mt-1 ml-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- url --}}
+            <div class="flex flex-col my-5">
+                <label for="urlEdit" class="text-sm mb-2 ml-1">Url</label>
+                <input type="text" required name="url" value="Memuat.." minlength="3" maxlength="254" id="urlEdit" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
+                {{-- error --}}
+                @error('url')
+                    <p class="text-red-500 text-[12px] mt-1 ml-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="w-full flex justify-end">
+                <div class="cancelEdit bg-red-600 mr-3 px-4 py-2 rounded-[5px] text-sm cursor-pointer">Batal</div>
+                <button type="submit" class="bg-blue-900 px-4 py-2 rounded-[5px] text-sm">Simpan Perubahan</button>
+            </div>
+        </form>
+    </div>
 @endif
