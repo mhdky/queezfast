@@ -5,7 +5,7 @@
         <ul>
             <li class="mb-8">Category</li>
             @foreach ($categories as $category)
-                <li><a href="/category/{{ $category->slug }}" class="mb-4 text-zinc-600 text-sm inline-block cursor-default hover:underline md-768:cursor-pointer">{{ $category->name }}</a></li>
+                <li><a href="/category/{{ $category->slug }}" class="mb-4 text-zinc-600 text-sm inline-block cursor-default hover:underline md-768:cursor-pointer">{{ Str::title($category->name) }}</a></li>
             @endforeach
         </ul>
 
@@ -13,7 +13,7 @@
         <ul class="mt-8 sm-550:mt-0">
             <li class="mb-8">Find Me On</li>
             @foreach ($socials as $social)
-                <li><a href="{{ $social->url }}" class="mb-4 text-zinc-600 text-sm inline-block cursor-default hover:underline md-768:cursor-pointer">{{ $social->name }}</a></li>
+                <li><a href="{{ $social->url }}" class="mb-4 text-zinc-600 text-sm inline-block cursor-default hover:underline md-768:cursor-pointer">{{ Str::title($social->name) }}</a></li>
             @endforeach
         </ul>
 
@@ -21,7 +21,7 @@
         <ul class="mt-8 sm-550:mt-0">
             <li class="mb-8">Blog</li>
             @foreach ($blogs as $blog)
-                <li><a href="{{ $blog->url }}" class="mb-4 text-zinc-600 text-sm inline-block cursor-default hover:underline md-768:cursor-pointer">{{ $blog->name }}</a></li>
+                <li><a href="{{ $blog->url }}" class="mb-4 text-zinc-600 text-sm inline-block cursor-default hover:underline md-768:cursor-pointer">{{ Str::title($blog->name) }}</a></li>
             @endforeach
         </ul>
 
@@ -29,7 +29,7 @@
         <ul class="mt-8 sm-550:mt-0">
             <li class="mb-8">Sponsors</li>
             @foreach ($sponsors as $sponsor)
-                <li><a href="{{ $sponsor->url }}" class="mb-4 text-zinc-600 text-sm inline-block cursor-default hover:underline md-768:cursor-pointer">{{ $sponsor->name }}</a></li>
+                <li><a href="{{ $sponsor->url }}" class="mb-4 text-zinc-600 text-sm inline-block cursor-default hover:underline md-768:cursor-pointer">{{ Str::title($sponsor->name) }}</a></li>
             @endforeach
         </ul>
     </div>

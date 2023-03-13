@@ -53,6 +53,8 @@ Route::delete('/post/{post:id}', [PostController::class, 'destroy']);
 
 // sosmed
 Route::get('/social-media', [SocialmediaController::class, 'index'])->middleware('auth')->name('social-media');
+// add sosmed
+Route::post('/social-media', [SocialmediaController::class, 'store']);
 
 // blog
 Route::get('/blog', [BlogController::class, 'index'])->middleware('auth')->name('blog');

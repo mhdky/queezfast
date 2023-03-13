@@ -38,7 +38,9 @@
     <div class="mb-10 grid grid-cols-1 gap-5 w-full px-5 md-768:grid-cols-2 md-970:gap-8 lg-1155:w-[1155px] lg-1155:mx-auto">
         {{-- post --}}
         @foreach ($posts as $post)
-            <div class="break-inside-avoid border border-gray-primary rounded-[5px]">
+            <div class="break-inside-avoid border border-gray-primary rounded-[5px] relative">
+                {{-- <div class="absolute -z-10 top-16 right-10 text-9xl text-[#1c1c20]">{{ $loop->iteration }}</div> --}}
+
                 <div class="flex justify-between items-center py-2 px-4 border-b border-gray-primary">
                     {{-- category --}}
                     <a href="/category/{{ $post->category->slug }}" class="{{ $post->category->color }} text-[12px] cursor-default hover:underline md-768:cursor-pointer">{{ $post->category->name }}</a>

@@ -16,9 +16,9 @@
         <div class="listCategoryDropdown w-max bg-zinc-800 hidden flex-col border border-gray-primary rounded-[5px] absolute top-10 left-[225px] overflow-hidden lg-1000:left-[250px]">
             @foreach ($categories as $category)
                 @if (request()->is('category/' . $category->slug) || (request()->is('category') && $category->slug === 'all'))
-                    <a href="/category/{{ $category->slug }}" class="inline-block px-4 py-2 text-sm bg-zinc-700">{{ $category->name }}</a>
+                    <a href="/category/{{ $category->slug }}" class="inline-block px-4 py-2 text-sm bg-zinc-700">{{ Str::title($category->name) }}</a>
                 @else
-                    <a href="/category/{{ $category->slug }}" class="inline-block px-4 py-2 text-sm hover:bg-zinc-700">{{ $category->name }}</a>
+                    <a href="/category/{{ $category->slug }}" class="inline-block px-4 py-2 text-sm hover:bg-zinc-700">{{ Str::title($category->name) }}</a>
                 @endif
             @endforeach
         </div>

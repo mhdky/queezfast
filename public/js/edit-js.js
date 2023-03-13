@@ -2,6 +2,7 @@
 const editBtns = document.querySelectorAll('.edit-btn');
 editBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+        document.body.style.overflow = 'hidden';
         document.querySelector('.alertEdit').style.display = 'flex';
         const id = btn.dataset.id;
         fetch(`/akfsdqoiwj12/${id}`)
@@ -25,4 +26,5 @@ const cancelEdit = document.querySelector('.cancelEdit');
 const alertEdit = document.querySelector('.alertEdit');
 cancelEdit.addEventListener('click', () => {
     alertEdit.style.display = 'none';
+    document.body.style.overflow = 'auto';
 });
