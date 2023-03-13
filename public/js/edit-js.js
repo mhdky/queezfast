@@ -38,6 +38,23 @@ editSocialMedia.forEach(btnEditSocialMedia => {
     });
 });
 
+// edit blog
+const editSocialMedia = document.querySelectorAll('.editSocialMedia');
+editSocialMedia.forEach(btnEditSocialMedia => {
+    btnEditSocialMedia.addEventListener('click', () => {
+        document.body.style.overflow = 'hidden';
+        document.querySelector('.alertEdit').style.display = 'flex';
+        const id = btnEditSocialMedia.dataset.id;
+        fetch(`/sjefjsdajq27/${id}`)
+            .then(response => response.json())
+            .then(socialMedia => {
+                document.querySelector('.formEditSocialMedia').action = `/socialMedia/${socialMedia.id}`;
+                document.getElementById('nameEdit').value = socialMedia.name;
+                document.getElementById('urlEdit').value = socialMedia.url;
+            });
+    });
+});
+
 
 // batal edit 
 const cancelEdit = document.querySelector('.cancelEdit');

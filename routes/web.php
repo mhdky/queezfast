@@ -64,6 +64,8 @@ Route::delete('/social-media/{social:id}', [SocialmediaController::class, 'destr
 
 // blog
 Route::get('/blog', [BlogController::class, 'index'])->middleware('auth')->name('blog');
+// add blog
+Route::post('/blog', [BlogController::class, 'store']);
 
 // sponsor
 Route::get('/sponsor', [SponsorController::class, 'index'])->middleware('auth')->name('sponsor');
