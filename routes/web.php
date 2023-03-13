@@ -67,7 +67,7 @@ Route::post('/blog', [BlogController::class, 'store']);
 Route::get('/alkfj1jqdf8/{blog:id}', [BlogController::class, 'edit']);
 // update blog
 Route::put('/blog/{blog:id}', [BlogController::class, 'update']);
-// hapus post
+// hapus blog
 Route::delete('/blog/{blog:id}', [BlogController::class, 'destroy']);
 
 // sponsor--------------------------------------------------------------------------
@@ -78,3 +78,5 @@ Route::post('/sponsor', [SponsorController::class, 'store']);
 Route::get('/qilkaiqefl/{sponsor:id}', [SponsorController::class, 'edit']);
 // update sponsor
 Route::put('/sponsor/{sponsor:id}', [SponsorController::class, 'update']);
+// hapus sponsor
+Route::delete('/sponsor/{sponsor:id}', [SponsorController::class, 'destroy']);

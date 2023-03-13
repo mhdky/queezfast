@@ -42,4 +42,13 @@ class SponsorController extends Controller
 
         return redirect('/sponsor')->with('ok', 'Sponsor berhasil edit');
     }
+
+        // hapust sponsor
+        public function destroy(Sponsor $sponsor) {
+            $sponsor->delete();
+    
+            return response()->json([
+                'message' => 'sponsor berhasil berhasil dihapus'
+            ]);
+        }
 }
