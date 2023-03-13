@@ -105,7 +105,7 @@
             {{-- url --}}
             <div class="flex flex-col my-5">
                 <label for="url" class="text-sm mb-2 ml-1">Url</label>
-                <input type="url" required name="url" value="{{ old('url') }}" minlength="3" maxlength="254" id="url" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
+                <input type="text" required name="url" value="{{ old('url') }}" minlength="3" maxlength="254" id="url" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
                 {{-- error --}}
                 @error('url')
                     <p class="text-red-500 text-[12px] mt-1 ml-2">{{ $message }}</p>

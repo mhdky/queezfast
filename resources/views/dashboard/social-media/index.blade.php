@@ -15,8 +15,8 @@
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-[#7B7B7B]">
                 <a href="{{ $social->url }}" class="text-sm hover:underline">{{ Str::title($social->name) }}</a>
             
-                <div class="fle">
-                    <i class="fas fa-edit text-sm mr-3"></i>
+                <div class="flex">
+                    <i class="editSocialMedia fas fa-edit text-sm mr-3 cursor-pointer" data-id="{{ $social->id }}"></i>
                     <i class="btnDeletePos fas fa-trash-alt text-sm cursor-pointer"></i>
                 </div>
             </div>
@@ -24,12 +24,20 @@
     </div>
 
     @include('partials.alert-add')
+
+    @include('partials.alert-edit')
     
     @include('partials.alert-delete')
+
+    @include('partials.alert-ok')
 @endsection
 
 @section('add-js')
     <script src="{{ asset('js/add-js.js') }}"></script>
+@endsection
+
+@section('edit-js')
+    <script src="{{ asset('js/edit-js.js') }}"></script>
 @endsection
 
 @section('delete-js')
