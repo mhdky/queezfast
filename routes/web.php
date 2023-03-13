@@ -21,26 +21,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// home
+// home---------------------------------------------------------------------------------
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
 // data for live search
 Route::get('/sdjfqiaaweq112/{searchText}', [HomeController::class, 'search']);
-
 // postingan dengan category tertentu
 Route::get('/category/{category:slug}',[CategoryController::class, 'index']);
 
-// login
+// login---------------------------------------------------------------------------------
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->middleware('guest')->name('auth-login');
-
 // logout
 Route::post('/logasdfwsf', [AuthController::class, 'logout'])->name('logout');
 
-// dashboard
+// dashboard---------------------------------------------------------------------------------
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
-// post
+// post----------------------------------------------------------------------------------
 Route::get('/post', [PostController::class, 'index'])->middleware('auth')->name('post');
 // add post
 Route::post('/post', [PostController::class, 'store'])->name('posts.store');
@@ -51,7 +48,7 @@ Route::put('/post/{post:id}', [PostController::class, 'update']);
 // hapus post
 Route::delete('/post/{post:id}', [PostController::class, 'destroy']);
 
-// sosmed
+// sosmed-------------------------------------------------------------------------------
 Route::get('/social-media', [SocialmediaController::class, 'index'])->middleware('auth')->name('social-media');
 // add sosmed
 Route::post('/social-media', [SocialmediaController::class, 'store']);
@@ -62,7 +59,7 @@ Route::put('/socialMedia/{social:id}', [SocialmediaController::class, 'update'])
 // hapus sosmed
 Route::delete('/social-media/{social:id}', [SocialmediaController::class, 'destroy']);
 
-// blog
+// blog-------------------------------------------------------------------------------
 Route::get('/blog', [BlogController::class, 'index'])->middleware('auth')->name('blog');
 // add blog
 Route::post('/blog', [BlogController::class, 'store']);
@@ -73,9 +70,11 @@ Route::put('/blog/{blog:id}', [BlogController::class, 'update']);
 // hapus post
 Route::delete('/blog/{blog:id}', [BlogController::class, 'destroy']);
 
-// sponsor
+// sponsor--------------------------------------------------------------------------
 Route::get('/sponsor', [SponsorController::class, 'index'])->middleware('auth')->name('sponsor');
 // add sponsor
 Route::post('/sponsor', [SponsorController::class, 'store']);
 // edit sponsor
 Route::get('/qilkaiqefl/{sponsor:id}', [SponsorController::class, 'edit']);
+// update sponsor
+Route::put('/sponsor/{sponsor:id}', [SponsorController::class, 'update']);

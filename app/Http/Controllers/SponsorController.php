@@ -30,4 +30,16 @@ class SponsorController extends Controller
     public function edit (Sponsor $sponsor) {
         return response()->json($sponsor);
     }
+
+    // update sosmed
+    public function update(Request $request, Sponsor $sponsor) {
+        $validateData = $request->validate([
+            'name' => 'required|min:3|max:254',
+            'url' => 'required|min:3|max:254',
+        ]);
+
+        Sponsor::where('id', $sponsor->id)->update($validateData);
+
+        return redirect('/sponsor')->with('ok', 'Sponsor berhasil edit');
+    }
 }
