@@ -39,21 +39,20 @@ class PostController extends Controller
     }
 
     // update post
-        // add post
-        public function update(Request $request, Post $post) {
-            $validateData = $request->validate([
-                'category_id' => 'required|min:1|max:100',
-                'github' => 'required|url|min:1|max:300',
-                'author' => 'required|min:1|max:50',
-                'date' => 'required',
-                'title' => 'required|min:1|max:255',
-                'slug' => 'required|url|min:1|max:300',
-                'excerpt' => 'required|min:5|max:5000000',
-            ]);
-    
-            Post::where('id', $post->id)->update($validateData);
-            return redirect('/post')->with('ok', 'Postingan berhasil diedit');
-        }
+    public function update(Request $request, Post $post) {
+        $validateData = $request->validate([
+            'category_id' => 'required|min:1|max:100',
+            'github' => 'required|url|min:1|max:300',
+            'author' => 'required|min:1|max:50',
+            'date' => 'required',
+            'title' => 'required|min:1|max:255',
+            'slug' => 'required|url|min:1|max:300',
+            'excerpt' => 'required|min:5|max:5000000',
+        ]);
+
+        Post::where('id', $post->id)->update($validateData);
+        return redirect('/post')->with('ok', 'Postingan berhasil diedit');
+    }
 
     // hapust post
     public function destroy(Post $post) {

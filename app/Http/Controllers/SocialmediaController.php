@@ -31,4 +31,16 @@ class SocialmediaController extends Controller
     public function edit (Social $social) {
         return response()->json($social);
     }
+
+    // update sosmed
+    public function update(Request $request, Social $social) {
+        $validateData = $request->validate([
+            'name' => 'required|min:3|max:254',
+            'url' => 'required|min:3|max:254',
+        ]);
+
+        Social::where('id', $social->id)->update($validateData);
+
+        return redirect('/social-media')->with('ok', 'Social media berhasil ditambahkan');
+    }
 }

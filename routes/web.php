@@ -57,6 +57,8 @@ Route::get('/social-media', [SocialmediaController::class, 'index'])->middleware
 Route::post('/social-media', [SocialmediaController::class, 'store']);
 // edit sosmed
 Route::get('/sjefjsdajq27/{social:id}', [SocialmediaController::class, 'edit']);
+// update sosmed
+Route::put('/socialMedia/{social:id}', [SocialmediaController::class, 'update']);
 
 // blog
 Route::get('/blog', [BlogController::class, 'index'])->middleware('auth')->name('blog');
