@@ -12,7 +12,6 @@ for(let a = 0; a < btnDeletePos.length || a < alertDelete.length || a < calcelDe
 }
 
 // delete post
-// delete data
 function deletePost(id) {
     const token = document.querySelector('input[name="_token"]').value;
     fetch('/post/' + id, {
@@ -24,6 +23,28 @@ function deletePost(id) {
     .then(response => {
         if (response.ok) {
             document.querySelector(`[data-post-id="${id}"]`).remove();
+        } else {
+            alert('Failed to delete post');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        alert('Failed to delete post');
+    });
+}
+
+// delete social media
+function deleteSocialMedia(id) {
+    const token = document.querySelector('input[name="_token"]').value;
+    fetch('/social-media/' + id, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            document.querySelector(`[data-socailMedia-id="${id}"]`).remove();
         } else {
             alert('Failed to delete post');
         }

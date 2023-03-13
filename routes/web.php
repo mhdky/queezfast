@@ -59,6 +59,8 @@ Route::post('/social-media', [SocialmediaController::class, 'store']);
 Route::get('/sjefjsdajq27/{social:id}', [SocialmediaController::class, 'edit']);
 // update sosmed
 Route::put('/socialMedia/{social:id}', [SocialmediaController::class, 'update']);
+// hapus post
+Route::delete('/social-media/{social:id}', [SocialmediaController::class, 'destroy']);
 
 // blog
 Route::get('/blog', [BlogController::class, 'index'])->middleware('auth')->name('blog');

@@ -41,6 +41,15 @@ class SocialmediaController extends Controller
 
         Social::where('id', $social->id)->update($validateData);
 
-        return redirect('/social-media')->with('ok', 'Social media berhasil ditambahkan');
+        return redirect('/social-media')->with('ok', 'Social media berhasil edit');
+    }
+
+    // hapust sosmed
+    public function destroy(Social $social) {
+        $social->delete();
+
+        return response()->json([
+            'message' => 'Social media berhasil berhasil dihapus'
+        ]);
     }
 }
