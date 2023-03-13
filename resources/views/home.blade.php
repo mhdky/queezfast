@@ -61,7 +61,7 @@
                     {{-- date --}}
                     <div class="flex items-center">
                         <i class="far fa-calendar text-sm text-zinc-600 mr-[14px] text-[12px]"></i>
-                        <p class="text-zinc-600 text-sm font-bold text-[12px]">{{ $post->date }}</p>
+                        <p class="text-zinc-600 text-sm font-bold text-[12px]">{{ Carbon\Carbon::parse($post->date)->translatedFormat('d F, Y') }}</p>
                     </div>
 
                     {{-- title --}}
@@ -82,7 +82,7 @@
     @endif  
 
     {{-- pagination --}}
-    <div class="flex justify-center items-center mb-10">
+    <div class="flex justify-center items-center mt-10 md-768:mt-32">
         {{ $posts->links() }}
     </div>
     

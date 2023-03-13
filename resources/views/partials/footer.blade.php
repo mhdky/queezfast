@@ -1,4 +1,4 @@
-<div class="bg-neutral-900 w-full px-5 flex flex-col justify-center border-t border-gray-primary pt-[52px] lg-1155:items-center">
+<div class="bg-neutral-900 w-full mt-52 px-5 flex flex-col justify-center border-t border-gray-primary pt-[52px] lg-1155:items-center">
     {{-- category, medsos, blog, sponsors --}}
     <div class="w-full flex flex-col sm-550:flex-row sm-550:justify-between lg-1155:w-[1100px]">
         {{-- category --}}

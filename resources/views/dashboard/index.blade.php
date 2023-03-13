@@ -18,7 +18,7 @@
             {{-- author --}}
             <h1 class="text-[#7B7B7B] text-[13px] font-bold mb-1">{{ Str::title($post->author) }}</h1>
             {{-- date --}}
-            <p class="text-[#7B7B7B] text-[13px] mb-3">{{ $post->date }}</p>
+            <p class="text-[#7B7B7B] text-[13px] mb-3">{{ Carbon\Carbon::parse($post->date)->translatedFormat('d F, Y') }}</p>
             {{-- title --}}
             <a href="{{ $post->slug }}" class="text-lg font-bold mb-3 inline-block hover:underline">{{ Str::title($post->title) }}</a>
             {{-- category --}}
