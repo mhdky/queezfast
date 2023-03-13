@@ -59,7 +59,7 @@ Route::post('/social-media', [SocialmediaController::class, 'store']);
 Route::get('/sjefjsdajq27/{social:id}', [SocialmediaController::class, 'edit']);
 // update sosmed
 Route::put('/socialMedia/{social:id}', [SocialmediaController::class, 'update']);
-// hapus post
+// hapus sosmed
 Route::delete('/social-media/{social:id}', [SocialmediaController::class, 'destroy']);
 
 // blog
@@ -70,6 +70,8 @@ Route::post('/blog', [BlogController::class, 'store']);
 Route::get('/alkfj1jqdf8/{blog:id}', [BlogController::class, 'edit']);
 // update blog
 Route::put('/blog/{blog:id}', [BlogController::class, 'update']);
+// hapus post
+Route::delete('/blog/{blog:id}', [BlogController::class, 'destroy']);
 
 // sponsor
 Route::get('/sponsor', [SponsorController::class, 'index'])->middleware('auth')->name('sponsor');

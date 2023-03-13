@@ -12,7 +12,7 @@
 
     <div class="w-[800px] flex flex-col">
         @foreach ($blogs as $blog)
-            <div class="flex justify-between items-center mb-5 pb-3 border-b border-[#7B7B7B]">
+            <div class="flex justify-between items-center mb-5 pb-3 border-b border-[#7B7B7B]" data-blog-id="{{ $blog->id }}">
                 <a href="{{ $blog->url }}" class="text-sm hover:underline">{{ Str::title($blog->name) }}</a>
             
                 <div class="flex">

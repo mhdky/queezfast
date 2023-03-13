@@ -55,6 +55,28 @@ function deleteSocialMedia(id) {
     });
 }
 
+// delete blog
+function deleteBlog(id) {
+    const token = document.querySelector('input[name="_token"]').value;
+    fetch('/blog/' + id, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            document.querySelector(`[data-blog-id="${id}"]`).remove();
+        } else {
+            alert('Failed to delete post');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        alert('Failed to delete post');
+    });
+}
+
 // ketika button delete ditekan
 const btnDelet = document.querySelectorAll('.btnDelete');
 const alertOk = document.querySelector('.alert-ok');

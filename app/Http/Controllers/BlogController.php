@@ -43,4 +43,13 @@ class BlogController extends Controller
 
         return redirect('/blog')->with('ok', 'Blog berhasil edit');
     }
+
+    // hapust blog
+    public function destroy(Blog $blog) {
+        $blog->delete();
+
+        return response()->json([
+            'message' => 'Blog berhasil berhasil dihapus'
+        ]);
+    }
 }
