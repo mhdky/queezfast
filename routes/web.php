@@ -68,6 +68,8 @@ Route::get('/blog', [BlogController::class, 'index'])->middleware('auth')->name(
 Route::post('/blog', [BlogController::class, 'store']);
 // edit blog
 Route::get('/alkfj1jqdf8/{blog:id}', [BlogController::class, 'edit']);
+// update blog
+Route::put('/blog/{blog:id}', [BlogController::class, 'update']);
 
 // sponsor
 Route::get('/sponsor', [SponsorController::class, 'index'])->middleware('auth')->name('sponsor');

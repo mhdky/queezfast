@@ -31,4 +31,16 @@ class BlogController extends Controller
     public function edit (Blog $blog) {
         return response()->json($blog);
     }
+
+    // update sosmed
+    public function update(Request $request, Blog $blog) {
+        $validateData = $request->validate([
+            'name' => 'required|min:3|max:254',
+            'url' => 'required|min:3|max:254',
+        ]);
+
+        Blog::where('id', $blog->id)->update($validateData);
+
+        return redirect('/blog')->with('ok', 'Blog berhasil edit');
+    }
 }
