@@ -119,9 +119,40 @@
         </form>
     </div>
 @elseif(Route::is('blog'))
-    {{-- add social media --}}
+    {{-- add blog --}}
     <div class="alertAdd bg-[#00000089] w-full h-screen fixed top-0 right-0 bottom-0 left-0 z-20 hidden justify-center items-center">
         <form action="/blog" method="POST" autocomplete="off" class="formAddPost bg-gray-primary w-[450px] p-7 rounded-[10px] overflow-auto">
+            @csrf
+            {{-- name --}}
+            <div class="flex flex-col my-5">
+                <label for="name" class="text-sm mb-2 ml-1">Name</label>
+                <input type="text" required name="name" value="{{ old('name') }}" minlength="3" maxlength="254" id="name" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
+                {{-- error --}}
+                @error('name')
+                    <p class="text-red-500 text-[12px] mt-1 ml-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+            {{-- url --}}
+            <div class="flex flex-col my-5">
+                <label for="url" class="text-sm mb-2 ml-1">Url</label>
+                <input type="text" required name="url" value="{{ old('url') }}" minlength="3" maxlength="254" id="url" class="w-full bg-zinc-600 py-2 px-3 text-sm rounded-[5px] focus:outline-none focus:shadow-none">
+                {{-- error --}}
+                @error('url')
+                    <p class="text-red-500 text-[12px] mt-1 ml-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="w-full flex justify-end">
+                <div class="cancelAdd bg-red-600 mr-3 px-4 py-2 rounded-[5px] text-sm cursor-pointer">Batal</div>
+                <button type="submit" class="bg-blue-900 px-4 py-2 rounded-[5px] text-sm">Tambahkan</button>
+            </div>
+        </form>
+    </div>
+@elseif(Route::is('sponsor'))
+    {{-- add sponsor --}}
+    <div class="alertAdd bg-[#00000089] w-full h-screen fixed top-0 right-0 bottom-0 left-0 z-20 hidden justify-center items-center">
+        <form action="/sponsor" method="POST" autocomplete="off" class="formAddPost bg-gray-primary w-[450px] p-7 rounded-[10px] overflow-auto">
             @csrf
             {{-- name --}}
             <div class="flex flex-col my-5">

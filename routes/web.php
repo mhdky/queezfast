@@ -75,3 +75,5 @@ Route::delete('/blog/{blog:id}', [BlogController::class, 'destroy']);
 
 // sponsor
 Route::get('/sponsor', [SponsorController::class, 'index'])->middleware('auth')->name('sponsor');
+// add sponsor
+Route::post('/sponsor', [SponsorController::class, 'store']);

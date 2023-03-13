@@ -13,4 +13,16 @@ class SponsorController extends Controller
             'sponsors' => Sponsor::all()
         ]);
     }
+
+    // add sponsor
+    public function store(Request $request) {
+        $validateData = $request->validate([
+            'name' => 'required|min:3|max:254',
+            'url' => 'required|min:3|max:254',
+        ]);
+
+        Sponsor::create($validateData);
+
+        return redirect('/sponsor')->with('ok', 'Sponsor berhasil ditambahkan');
+    }
 }
