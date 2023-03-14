@@ -15,19 +15,19 @@ queezfast saya gunakan untuk menyimpan link-link refrensi pembelajaran web progr
 
 ### Tampilan halaman home
 
-![alt text](https://github.com/mhdky/github-images/blob/64b821dd0adb879715e7185b5cd7db699c3182ed/quezzfast.png "Home Page")
+![Home Page](https://github.com/mhdky/github-images/blob/64b821dd0adb879715e7185b5cd7db699c3182ed/quezzfast.png "Home Page")
 
 
 ### Tampilan halaman login
 
-![alt text](https://github.com/mhdky/github-images/blob/64b821dd0adb879715e7185b5cd7db699c3182ed/queezfast-login.png "Login Page")
+![Login Page](https://github.com/mhdky/github-images/blob/64b821dd0adb879715e7185b5cd7db699c3182ed/queezfast-login.png "Login Page")
 
 
 ### Tampilan halaman dashboard
 
-![alt text](https://github.com/mhdky/github-images/blob/64b821dd0adb879715e7185b5cd7db699c3182ed/queezfast-dashboard.png "Dashboard Page")
+![Dashboard Page](https://github.com/mhdky/github-images/blob/64b821dd0adb879715e7185b5cd7db699c3182ed/queezfast-dashboard.png "Dashboard Page")
 
 
 ### Tampilan halaman post
 
-![alt text](https://github.com/mhdky/github-images/blob/64b821dd0adb879715e7185b5cd7db699c3182ed/queezfast-post.png "Post Page")
+![Post Page](https://github.com/mhdky/github-images/blob/64b821dd0adb879715e7185b5cd7db699c3182ed/queezfast-post.png "Post Page")
